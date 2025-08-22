@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Desinformação Zero",
+  "version": "0.0.1",
+  "description": "Extensão que utiliza IA (Gemini) para identificar possíveis sinais de desinformação em páginas da web.",
+  "author": "silvx",
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Desinformação Zero"
+  },
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
